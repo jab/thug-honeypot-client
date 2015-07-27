@@ -1,0 +1,141 @@
+{% extends "template.html" %}
+{% block content %}
+  <div class="page">
+  <h1>Scythe client</h1>
+  {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+  <br>Enter full URL to scan:
+    <div class="row">
+  <div class="col-lg-10">
+    <div class="input-group">
+      <input type="email" class="form-control" id="urlscan" name="urlscan" placeholder="URL (e.g. http://microsoft.com/help.aspx)">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Search!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+
+<br>Spoof referrer:
+<div class="row">
+  <div class="col-lg-10">
+    <div class="input-group">
+      <span class="input-group-addon">
+      </span>
+      <input type="text" class="form-control" aria-label="" placeholder="Domain (e.g. http://www.google.com">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div>
+
+<br>Emulate Adobe(tm) Acrobat:
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon">
+      </span>
+      <input type="text" class="form-control" aria-label="" placeholder="Version (e.g. 9.1.0)">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div>
+
+<br>Emulate Adobe(tm) flash:
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon">
+      </span>
+      <input type="text" class="form-control" aria-label="" placeholder="Version (e.g. 10.0.64.0)">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div>
+
+<br>Emulate Oracle Java(tm)
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon">
+      </span>
+      <input type="text" class="form-control" aria-label="" placeholder="Version (e.g. 1.6.0.32)">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div>
+
+<br>Email Link to results on scan completion?
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon">
+      </span>
+      <input type="text" class="form-control" aria-label="" placeholder="Email (e.g. you@yourcompany.com">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div>
+
+<br>Send DM via Twitter with link to results?
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon">
+      </span>
+      <input type="text" class="form-control" aria-label="" placeholder="@twittername (e.g. @opendnslabs)">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div>
+
+<br>
+<div class="dropdown">
+  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Operating system
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownOS">
+    <li><a href="#">Windows 7</a></li>
+    <li><a href="#">Windows XP SP3</a></li>
+    <li><a href="#">Windows XP SP2</a></li>
+    <li><a href="#">Windows XP SP1</a></li>
+  </ul>
+</div>
+<br>
+    <div class="dropdown">
+  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    System version
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownSystemVersion">
+    <li><a href="#">64 Bit</a></li>
+    <li><a href="#">32 Bit</a></li>
+  </ul>
+</div>
+
+<br>
+<div class="dropdown">
+  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Browser platform
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownOS">
+    <li><a href="#">Default (KHTML, like Gecko)</a></li>
+    <li><a href="#">Windows XP SP3</a></li>
+  </ul>
+</div>
+
+<br>
+<div class="dropdown">
+  <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Browser platform details
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownOS">
+    <li><a href="#">Windows 7</a></li>
+    <li><a href="#">Windows XP SP3</a></li>
+  </ul>
+</div>
+<br>
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="static/bootstrap.min.js"></script>
+{% endblock %}
