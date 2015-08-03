@@ -3,6 +3,7 @@
   <div class="page">
   <h1>Scythe client</h1>
   {% if error %}
+
     <p class=error><strong>Error:</strong> {{ error }}
   {% endif %}
   <br>Enter full URL to scan:
@@ -27,7 +28,7 @@
       <input type="text" class="form-control" aria-label="" placeholder="Domain (e.g. http://www.google.com">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div>
+</div><!-- /.row -->
 
 <br>Emulate Adobe(tm) Acrobat:
 <div class="row">
@@ -38,7 +39,7 @@
       <input type="text" class="form-control" aria-label="" placeholder="Version (e.g. 9.1.0)">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div>
+</div><!-- /.row -->
 
 <br>Emulate Adobe(tm) flash:
 <div class="row">
@@ -49,7 +50,7 @@
       <input type="text" class="form-control" aria-label="" placeholder="Version (e.g. 10.0.64.0)">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div>
+</div><!-- /.row -->
 
 <br>Emulate Oracle Java(tm)
 <div class="row">
@@ -60,7 +61,7 @@
       <input type="text" class="form-control" aria-label="" placeholder="Version (e.g. 1.6.0.32)">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div>
+</div><!-- /.row -->
 
 <br>Email Link to results on scan completion?
 <div class="row">
@@ -71,7 +72,7 @@
       <input type="text" class="form-control" aria-label="" placeholder="Email (e.g. you@yourcompany.com">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div>
+</div><!-- /.row -->
 
 <br>Send DM via Twitter with link to results?
 <div class="row">
@@ -82,7 +83,7 @@
       <input type="text" class="form-control" aria-label="" placeholder="@twittername (e.g. @opendnslabs)">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div>
+</div><!-- /.row -->
 
 <br>
 <div class="dropdown">

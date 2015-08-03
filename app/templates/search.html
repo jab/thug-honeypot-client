@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+
+<html>
+    <head>
+        <title>Thug Client</title>
+    </head>
+    <body>
+        <form action="/search" method="POST">
+        {{ form.search(placeholder="Enter a URL to scan ") }}
+        <input type="submit"></input>
+        </form>
+    </body>
+</html>
+
+{% for r in result %}
+   </h4> {{ result }} </h4>
+{% endfor %}

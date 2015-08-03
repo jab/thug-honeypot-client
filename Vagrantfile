@@ -25,12 +25,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.network :private_network, ip: "192.168.78.78"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network :public_network
+  config.vm.network :public_network, bridge: "en1: Wi-Fi (AirPort)"
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   vb.gui = true
   #
   #   # Use VBoxManage to customize the VM. For example to change memory:
-    vb.customize ["modifyvm", :id, "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
   #
   # View the documentation for the provider you're using for more
@@ -57,14 +57,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.name = "thug-vagrant"
   end
 
-  # Enable provisioning
-  config.vm.provision "shell", inline: "cp /vagrant/*.sh /tmp/"
-  config.vm.provision "shell", inline: "pip install yara"
-  config.vm.provision "shell", inline: "pip install Flask"
-  config.vm.provision "shell", inline: "pip install Jinja2"
-  config.vm.provision "shell", inline: "pip install Flask-WTF"
-  config.vm.provision "shell", inline: "apt-get install -y unzip curl"
-  config.vm.provision "shell", inline: "aptitude -y install dos2unix && dos2unix /tmp/*.sh"
-  config.vm.provision "shell", inline: "cd /tmp/ && sh setupThug.sh"
-  config.vm.provision "shell", inline: "apt-get update"
+config.vm.provision :shell do |shell|
+  shell.inline = "cp /vagrant/*.sh /tmp/;
+                  apt-get update;
+                  pip install --upgrade yara Flask Jinja2 Flask-WTF WTForms pymongo;
+                  apt-get install -y unzip curl;
+                  apt-get install -y ipython;
+                  apt-get install -y docker;
+                  aptitude -y install dos2unix && dos2unix /tmp/*.sh;
+                  apt-get install mercurial;
+                  cd /tmp/ && sh setupThug.sh;"
+  end
 end
