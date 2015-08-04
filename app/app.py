@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from config import DefaultConfig
+
 import os
 from flask import Flask, render_template, url_for, request, redirect
 from flask_wtf import Form
@@ -8,17 +10,19 @@ from wtforms.validators import Required
 from pymongo import MongoClient
 from thug_api import ThugClient
 
-app = Flask(__name__)
-thug = ThugClient()()
-client = MongoClient("mongodb://localhost:27017/thug")
-db = client.thug
 
-# Config
-app.config.from_object(os.environ['APP_SETTINGS'])
+app = Flask(__name__)
+app.config.from_object(DefaultConfig)
+if 'APP_SETTINGS' in os.environ:
+    app.config.from_envvar('APP_SETTINGS')
+
+thug = ThugClient()
+client = MongoClient(app.config['MONGO_DB_URI'])
+db = client.thug
 
 
 @app.route('/<result>', methods=['GET', 'POST'])
-def index():
+def index(result):
     error = None
     form = URLForm()
 

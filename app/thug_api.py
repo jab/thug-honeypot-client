@@ -9,8 +9,9 @@ log = logging.getLogger("Thug")
 class ThugClient(ThugAPI):
         def __init__(self, *args):
                 ThugAPI.__init__(self, args)
+
         def analyze(self):
-                self.log_init(url)
+                #self.log_init(url)
                 self.set_useragent(user_agent)
                 print self.get_useragent()
                 self.run_remote(url)
